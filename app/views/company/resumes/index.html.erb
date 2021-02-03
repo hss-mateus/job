@@ -1,0 +1,24 @@
+<% @resumes.each do |resume| %>
+  <p>
+    <b>Candidate:</b>
+    <%= resume.user.email %>
+  </p>
+  <p>
+    <b>Address:</b>
+    <%= resume.address %>
+  </p>
+  <p>
+    <b>Description:</b>
+    <%= resume.description %>
+  </p>
+  <p>
+    <b>Experience:</b>
+    <%= resume.experience %>
+  </p>
+  <p>
+    <b>Education:</b>
+    <%= resume.education %>
+  </p>
+
+  <hr />
+<% end %>

@@ -1,0 +1,23 @@
+<%= form_with model: resume, url: candidate_resume_path do |form| %>
+  <% if resume.errors.any? %>
+    <div class="border: solid 1px red">
+      <% resume.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :address %>
+  <%= form.text_field :address %>
+
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+
+  <%= form.label :experience %>
+  <%= form.text_field :experience %>
+
+  <%= form.label :education %>
+  <%= form.text_field :education %>
+
+  <%= form.submit %>
+<% end %>

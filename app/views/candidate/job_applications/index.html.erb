@@ -1,0 +1,3 @@
+<% @job_applications.each do |job_application| %>
+  <%= link_to job_application.job_posting.title, candidate_job_posting_path(job_application.job_posting) %>
+<% end %>

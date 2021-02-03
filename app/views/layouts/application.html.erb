@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proto</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbo-track": 'reload' %>
+    <%= javascript_pack_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <%= link_to "Home", root_path %> |
+
+    <% if user_signed_in? %>
+      <%= current_user.email %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+    <% else %>
+      <%= link_to "Login", new_user_session_path %> |
+      <%= link_to "Register", new_user_registration_path if request.subdomain.blank? %> |
+    <% end %>
+
+    <% if request.subdomain.blank? && user_signed_in? %>
+      <%= link_to "Create a Company", new_company_path %> |
+      <%= link_to "Job Postings", candidate_job_postings_path %> |
+      <%= link_to "Your Resume", candidate_resume_path %> |
+      <%= link_to "Your Job Applications", candidate_job_applications_path %> |
+    <% elsif user_signed_in? %>
+      <%= link_to "Resumes", company_resumes_path %> |
+      <%= link_to "Job Postings", company_job_postings_path %> |
+      <%= link_to "Job Applications", company_job_applications_path %> |
+    <% end %>
+
+    <hr />
+
+    <p style="color: green"><%= notice %></p>
+    <p style="color: red"><%= alert %></p>
+
+    <hr />
+
+    <%= yield %>
+  </body>
+</html>

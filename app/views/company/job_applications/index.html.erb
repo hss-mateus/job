@@ -1,0 +1,4 @@
+<% @job_applications.each do |job_application| %>
+  <%= link_to job_application.user.email, company_resume_path(job_application.user.resume) %>
+  <hr />
+<% end %>

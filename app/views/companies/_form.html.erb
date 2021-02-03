@@ -1,0 +1,17 @@
+<%= form_with model: company, url: company_path, data: { turbo: false } do |f| %>
+  <% if company.errors.any? %>
+    <div class="border: solid 1px red">
+      <% company.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :subdomain %>
+  <%= f.text_field :subdomain %>
+
+  <%= f.submit %>
+<% end %>

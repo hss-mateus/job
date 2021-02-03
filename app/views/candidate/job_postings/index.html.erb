@@ -1,0 +1,7 @@
+<% @job_postings.each do |job_posting| %>
+  <%= link_to job_posting.title, candidate_job_posting_path(job_posting) %>
+  <p><%= job_posting.description %></p>
+
+  <%= link_to "Apply", candidate_job_posting_apply_path(job_posting), method: :post unless current_user.applied_for?(job_posting) %>
+  <hr />
+<% end %>

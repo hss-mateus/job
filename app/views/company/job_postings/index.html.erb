@@ -1,0 +1,7 @@
+<% @job_postings.each do |job_posting| %>
+  <%= link_to job_posting.title, company_job_posting_path(job_posting) %>
+  <p><%= job_posting.description %></p>
+  <hr />
+<% end %>
+
+<%= link_to "New", new_company_job_posting_path %>

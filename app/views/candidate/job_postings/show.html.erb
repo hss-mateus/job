@@ -1,0 +1,5 @@
+<h1><%= @job_posting.title %></h1>
+
+<p><%= @job_posting.description %></p>
+
+<%= link_to "Apply", candidate_job_posting_apply_path(@job_posting), method: :post unless current_user.applied_for?(@job_posting) %>
